@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bóng Rổ Pro Store - Cửa hàng dụng cụ bóng rổ chuyên nghiệp</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" />
+    <style>
+        /* CSS Nâng cấp */
+        :root {
+            --primary-color: #f16601;
+            --secondary-color: #2c3e50;
+            --accent-color: #3498db;
+            --dark-color: #1a1a1a;
+            --light-color: #ecf0f1;
+            --white-color: #ffffff;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.4s;
+            --font-family: 'Poppins', sans-serif;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-family); background-color: var(--light-color); color: var(--secondary-color); line-height: 1.6; }
+        a { text-decoration: none; color: var(--primary-color); }
+        a:hover { color: var(--accent-color); }
+        button, input, select { font-family: inherit; font-size: 1rem; }
+        h1, h2, h3 { font-weight: 700; color: var(--secondary-color); }
+        h2 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem; }
+        .material-symbols-outlined { font-size: 1.5rem; vertical-align: middle; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-padding { padding: 4rem 0; }
+        .text-center { text-align: center; }
+
+        /* HEADER MỚI */
+        header {
+            background-color: var(--white-color);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: padding 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+        }
+        header.mini-header {
+            padding: 0.8rem 2rem;
+            background-color: var(--dark-color);
+            color: var(--white-color);
+            transform: translateY(-100%);
+        }
+        header.mini-header h1 a {
+            color: var(--white-color);
+        }
+        header.mini-header .logo-icon {
+            color: var(--primary-color);
+        }
+        header.mini-header nav,
+        header.mini-header .search-bar input {
+            display: none;
+        }
+        header.mini-header .search-bar .material-symbols-outlined {
+            color: var(--white-color);
+        }
+        header.mini-header #auth-buttons-container .user-info a,
+        header.mini-header #auth-buttons-container #login-btn {
+             color: var(--white-color);
+        }
+        header.mini-header #cart-btn,
+        header.mini-header #wishlist-btn {
+            background: transparent;
+            border: 1px solid var(--white-color);
+            color: var(--white-color);
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        header h1 { font-size: 1.8rem; display: flex; align-items: center; gap: 0.5rem; color: var(--dark-color); }
+        header h1 a { color: var(--dark-color); }
+        header .logo-icon { color: var(--primary-color); font-size: 2.2rem; }
+        header nav { display: flex; align-items: center; gap: 1.5rem; }
+        header nav a { font-weight: 600; color: var(--dark-color); position: relative; padding: 0.5rem 0; transition: color var(--transition-speed); }
+        header nav a:hover { color: var(--primary-color); }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+            transition: width var(--transition-speed);
+        }
+        header nav a:hover::after,
+        header nav a.active::after { width: 100%; }
+        .user-info { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--dark-color); }
+        .user-info a { color: var(--dark-color); }
+
+        .search-bar {
+            position: relative;
+            flex-grow: 1; 
+            max-width: 400px;
+            margin: 0 1rem;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem 2.5rem 0.8rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(241, 102, 1, 0.2);
+        }
+        .search-bar .material-symbols-outlined {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            cursor: pointer;
+        }
+        .cart-wishlist-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .promo-banner {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+        }
+
+        /* SEARCH OVERLAY */
+        #search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+        #search-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #search-overlay .search-input-container {
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+        }
+        #search-overlay #search-input-full {
+            width: 100%;
+            padding: 1.5rem 2.5rem;
+            font-size: 2rem;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+            background-color: var(--white-color);
+        }
+        #search-overlay .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--white-color);
+        }
+        #search-overlay .search-results {
+            background: var(--white-color);
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+            padding: 2rem;
+        }
+        #search-overlay .search-results .product-card {
+            box-shadow: none;
+            border-bottom: 1px solid #eee;
+            padding: 1rem;
+        }
+
+        main {
+            padding: 0;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .page-content {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+            min-height: 70vh;
+        }
+        .page-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white-color);
+            overflow: hidden;
+        }
+        .hero-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        .hero-content {
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+        }
+        .hero-content h2 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            color: var(--white-color);
+        }
+        .hero-content p {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        .hero-section .btn {
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+        }
+
+        .category-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: -80px;
+            position: relative;
+            z-index: 2;
+        }
+        .category-card {
+            background: var(--white-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            overflow: hidden;
+        }
+        .category-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        .category-card a {
+            display: block;
+            padding: 1.5rem;
+        }
+        .category-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+        }
+        .category-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .about-section {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        .about-section h2 {
+            color: var(--white-color);
+        }
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: var(--white-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); }
+        
+        .product-image-container {
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+        }
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            transition: transform var(--transition-speed);
+            border-radius: var(--border-radius);
+        }
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+        .product-card-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .product-card h3 { margin: 0.5rem 0; font-size: 1.3rem; }
+        .product-card p { font-size: 1.2rem; font-weight: 600; color: var(--primary-color); }
+        .wishlist-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            transition: all 0.3s;
+        }
+        .wishlist-btn:hover {
+            background: var(--primary-color);
+            color: var(--white-color);
+            border-color: var(--primary-color);
+        }
+        .product-rating .star {
+            font-size: 1.5rem;
+            color: #ccc;
+        }
+        .product-rating .star.filled {
+            color: #ffcc00;
+        }
+
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+        .btn-primary { background-color: var(--primary-color); color: white; }
+        .btn-secondary { background-color: var(--secondary-color); color: white; }
+        .btn-danger { background-color: var(--danger-color); color: white; }
+        .btn-ghost { background: transparent; color: var(--dark-color); border: 2px solid #ccc; }
+        .btn-ghost:hover { background-color: #e0e0e0; }
+        .btn-small { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+        .btn-block { width: 100%; margin-top: 1rem; }
+        .btn-circle { width: 40px; height: 40px; border-radius: 50%; padding: 0; display: flex; justify-content: center; align-items: center; }
+        
+        .btn-primary:hover { background-color: #e05e00; }
+        .btn-ghost:hover { background-color: #e0e0e0; }
+
+        .category-links, .product-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .filter-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .category-filter-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .category-filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        .category-filter-btn {
+            background: none;
+            color: var(--secondary-color);
+            border: 2px solid #ccc;
+            transition: all var(--transition-speed);
+        }
+        .category-filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .filter-group select {
+            padding: 0.6rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .pagination button {
+            background-color: transparent;
+            color: var(--dark-color);
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+        .pagination button:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        .pagination .page-number {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .cart-search-bar {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .cart-search-bar input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .cart-search-bar .material-symbols-outlined {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            cursor: pointer;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+        }
+        .popup-overlay.show { opacity: 1; visibility: visible; }
+        .popup-content {
+            background: var(--white-color);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 95%;
+            max-width: 600px;
+            transform: translateY(-50px) scale(0.9);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            position: relative;
+        }
+        .popup-overlay.show .popup-content { transform: translateY(0) scale(1); opacity: 1; }
+        .popup-content h2 { margin-bottom: 2rem; text-align: center; }
+        .popup-content input, .popup-content select {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        .popup-content input:focus { outline: none; border-color: var(--primary-color); }
+        .popup-content .btn-block { margin-top: 1.5rem; }
+
+        #product-detail-popup .popup-content { max-width: 900px; padding: 4rem; }
+        .product-detail-content {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .product-detail-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+        .product-detail-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+        }
+        .product-detail-info {
+            flex: 2;
+        }
+        .product-detail-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .product-detail-info .price {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .product-detail-info .description {
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        .product-detail-info .add-to-cart-btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .product-detail-info .add-to-cart-btn:hover { background-color: #e05e00; }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        .product-rating .star {
+            font-size: 1.5rem;
+        }
+        .product-rating .star.filled {
+            color: #ffcc00;
+        }
+        .product-reviews {
+            margin-top: 2rem;
+            border-top: 1px dashed #ccc;
+            padding-top: 1.5rem;
+        }
+        .product-reviews h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            transition: transform var(--transition-speed);
+        }
+        .close-btn:hover { color: var(--danger-color); transform: rotate(90deg); }
+
+        #cart-items-list, #wishlist-items-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+            padding-right: 1rem;
+        }
+        #wishlist-items-list .product-card {
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .cart-item:last-child { border-bottom: none; }
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex: 1;
+        }
+        .cart-item-info img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .cart-item-details h4 { font-size: 1.1rem; margin: 0; }
+        .cart-item-details p { color: var(--primary-color); font-weight: 600; margin: 0; }
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            padding: 0.2rem;
+        }
+        .item-quantity button {
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        .item-quantity button:hover { background-color: var(--primary-color); color: white; }
+        .cart-item-total {
+            font-weight: 600;
+            width: 120px;
+            text-align: right;
+            color: var(--secondary-color);
+        }
+        .cart-summary {
+            margin-top: 2rem;
+            border-top: 2px dashed #ccc;
+            padding-top: 2rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .cart-summary span { color: var(--primary-color); }
+        
+        #checkout-popup .popup-content { max-width: 500px; }
+        .checkout-summary-item { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 0.5rem; 
+            font-size: 1rem; 
+        }
+        .checkout-summary-total { font-weight: 700; font-size: 1.2rem; margin-top: 1rem; }
+        .checkout-summary-item.discount-applied {
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .policy-content h2, .policy-content h4 {
+            color: var(--primary-color);
+        }
+        .policy-content p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        .policy-content ul {
+            margin-left: 2rem;
+            color: #555;
+        }
+
+        .profile-info {
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white-color);
+            padding: 4rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        footer .footer-section {
+            flex: 1;
+            min-width: 250px;
+            text-align: left;
+        }
+        footer h4 { color: var(--primary-color); margin-bottom: 1rem; }
+        footer ul { list-style: none; padding: 0; }
+        footer ul li { margin-bottom: 0.5rem; }
+        footer ul li a { color: rgba(255, 255, 255, 0.7); transition: color var(--transition-speed); }
+        footer ul li a:hover { color: var(--white-color); }
+        footer .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        footer .copyright {
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--success-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+        }
+        .toast.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .toast.error { background-color: var(--danger-color); }
+        .toast.info { background-color: #3498db; }
+
+        .go-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 99;
+        }
+        .go-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #invoice-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        #invoice-content button {
+            margin-top: 1rem;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero-content h2 { font-size: 3rem; }
+            .hero-content p { font-size: 1.4rem; }
+            .product-detail-content { flex-direction: column; }
+            .product-detail-image { min-width: auto; }
+            .about-section { padding: 4rem 1rem; }
+            header { flex-direction: column; }
+            header nav { justify-content: center; }
+            .container { padding: 0 1rem; }
+            .search-bar { width: 100%; max-width: none; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            header nav { gap: 1rem; }
+            header .btn-small { font-size: 0.8rem; padding: 0.5rem 1rem; }
+            .hero-content h2 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+            h2 { font-size: 2rem; }
+            .category-section { margin-top: -50px; }
+            .product-detail-content { gap: 1.5rem; padding: 1rem; }
+            .product-detail-info h3 { font-size: 1.8rem; }
+            .popup-content { padding: 2rem; }
+        }
+        
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #invoice-page, #invoice-page * {
+                visibility: visible;
+            }
+            #invoice-page {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-main">
+            <h1><a href="#" data-page="home"><span class="material-symbols-outlined logo-icon">sports_basketball</span> Bóng Rổ Pro Store</a></h1>
+            <nav>
+                <a href="#" data-page="home">Trang chủ</a>
+                <a href="#" data-page="product">Sản phẩm</a>
+                <a href="#" data-page="about">Về chúng tôi</a>
+                <a href="#" data-page="contact">Liên hệ</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
+                <span class="material-symbols-outlined">search</span>
+            </div>
+            <div id="auth-buttons-container">
+                <button id="login-btn" class="btn btn-ghost btn-small">
+                    <span class="material-symbols-outlined">account_circle</span> Đăng nhập
+                </button>
+            </div>
+            <div class="cart-wishlist-container">
+                 <button id="wishlist-btn" class="btn btn-ghost btn-small">
+                    <span class="material-symbols-outlined">favorite</span> Yêu thích (<span id="wishlist-count">0</span>)
+                </button>
+                <button id="cart-btn" class="btn btn-primary btn-small">
+                    <span class="material-symbols-outlined">shopping_cart</span> Giỏ hàng (<span id="cart-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home-page" class="page-content active">
+            <div class="hero-section">
+                <video autoplay muted loop playsinline poster="https://file.hstatic.net/200000037626/file/2banner-trang-chu_1920x890_3e14de31818c4239ae76d708e04fd7f9.png">
+                    <source src="https://www.shutterstock.com/shutterstock/videos/3566507717/preview/stock-footage-futuristic-basketball-arena-at-night-with-shining-spotlights-and-thrilling-atmosphere-before-sport.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h2>Nâng Tầm Đẳng Cấp Của Bạn</h2>
+                    <p>Khám phá bộ sưu tập dụng cụ bóng rổ tốt nhất để bứt phá giới hạn</p>
+                    <button class="btn btn-primary" data-page="product" data-category="all">Mua Sắm Ngay!</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="category-section">
+                    <div class="category-card">
+                        <a href="#" data-page="product" data-category="giày">
+                            <img src="https://product.hstatic.net/200000037626/product/vyll9621_6431da3f83724ef5b0854303e79c3a45_large.png" alt="Giày Bóng Rổ" loading="lazy" />
+                            <h3>Giày Bóng Rổ</h3>
+                        </a>
+                    </div>
+                    <div class="category-card">
+                        <a href="#" data-page="product" data-category="bóng">
+                            <img src="https://product.hstatic.net/200000037626/product/img_6642_3b74a4fba27d4a1295744eb233dcb6d0_large.png" alt="Bóng Bóng Rổ" loading="lazy" />
+                            <h3>Bóng Bóng Rổ</h3>
+                        </a>
+                    </div>
+                    <div class="category-card">
+                        <a href="#" data-page="product" data-category="quần áo">
+                            <img src="https://product.hstatic.net/200000037626/product/vyll8643_6f96a45f9e074ab3a23625133750077e_grande.png" alt="Áo Thi Đấu" loading="lazy" />
+                            <h3>Quần Áo</h3>
+                        </a>
+                    </div>
+                    <div class="category-card">
+                        <a href="#" data-page="product" data-category="phụ kiện">
+                            <img src="https://bizweb.dktcdn.net/100/232/793/files/phu-kien-bong-ro.jpg?v=1685009430826" alt="Phụ kiện" loading="lazy" />
+                            <h3>Phụ Kiện</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="section-padding container">
+                <h2 class="text-center">Sản phẩm nổi bật</h2>
+                <div class="products" id="product-list-container"></div>
+            </section>
+
+            <section class="about-section">
+                <div class="container">
+                    <h2>Câu chuyện của chúng tôi</h2>
+                    <p>Bóng Rổ Pro Store không chỉ là một cửa hàng, mà còn là nơi hội tụ của những người đam mê bóng rổ. Chúng tôi tin rằng mỗi cầu thủ đều xứng đáng có những dụng cụ tốt nhất để phát huy hết tiềm năng của mình. Sứ mệnh của chúng tôi là mang đến những sản phẩm chất lượng cao, từ các thương hiệu hàng đầu thế giới, với giá cả hợp lý nhất.</p>
+                    <button class="btn btn-primary" data-page="about">Khám phá thêm</button>
+                </div>
+            </section>
+        </section>
+
+        <section id="product-page" class="page-content section-padding container">
+            <div class="promo-banner">
+                <p>🎉 Chào mừng thành viên mới! Đăng ký tài khoản ngay để nhận ưu đãi giảm giá 27% cho đơn hàng đầu tiên!</p>
+            </div>
+            <h2 class="text-center">Tất cả sản phẩm</h2>
+            <div class="product-filters">
+                <div class="category-links">
+                    <button class="btn btn-ghost category-filter-btn active" data-category="all">Tất cả</button>
+                    <button class="btn btn-ghost category-filter-btn" data-category="bóng">Bóng rổ</button>
+                    <button class="btn btn-ghost category-filter-btn" data-category="giày">Giày bóng rổ</button>
+                    <button class="btn btn-ghost category-filter-btn" data-category="quần áo">Quần áo</button>
+                    <button class="btn btn-ghost category-filter-btn" data-category="phụ kiện">Phụ kiện</button>
+                </div>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <h4>Giá:</h4>
+                        <select id="price-filter">
+                            <option value="all">Tất cả</option>
+                            <option value="under500">Dưới 500k</option>
+                            <option value="500-2m">500k - 2 triệu</option>
+                            <option value="over2m">Trên 2 triệu</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Thương hiệu:</h4>
+                        <select id="brand-filter">
+                            <option value="all">Tất cả</option>
+                            </select>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Sắp xếp:</h4>
+                        <select id="sort-by">
+                            <option value="default">Mặc định</option>
+                            <option value="price-asc">Giá: Thấp đến Cao</option>
+                            <option value="price-desc">Giá: Cao đến Thấp</option>
+                            <option value="name-asc">Tên: A-Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="filtered-products-container" class="products"></div>
+            <div id="pagination-controls" class="pagination">
+                <button id="prev-page-btn" class="btn btn-circle material-symbols-outlined">chevron_left</button>
+                <span id="page-info" class="page-number">Trang 1</span>
+                <button id="next-page-btn" class="btn btn-circle material-symbols-outlined">chevron_right</button>
+            </div>
+        </section>
+
+        <section id="about-page" class="page-content section-padding container">
+            <h2 class="text-center">Về chúng tôi</h2>
+            <div style="display: flex; gap: 3rem; flex-wrap: wrap; align-items: center;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.FFpaaXsBEHstfSg9jMQVYAHaFj?rs=1&pid=ImgDetMain&o=7&rm=3" alt="About Us" style="width: 100%; border-radius: var(--border-radius); box-shadow: var(--box-shadow);" loading="lazy" />
+                </div>
+                <div style="flex: 2;">
+                    <h3>Sứ mệnh của chúng tôi</h3>
+                    <p>Chúng tôi là những người bạn đồng hành cùng bạn trên sân bóng. Mỗi sản phẩm được chọn lọc kỹ lưỡng, đảm bảo chất lượng và hiệu suất cao nhất. Từ những quả bóng chính hãng, những đôi giày công nghệ tiên tiến đến những bộ trang phục thoải mái, chúng tôi cam kết mang đến cho bạn trải nghiệm mua sắm tuyệt vời nhất.</p>
+                    <p>Hãy cùng Bóng Rổ Pro Store chinh phục mọi thử thách và vươn tới những đỉnh cao mới!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-page" class="page-content section-padding container">
+            <h2 class="text-center">Liên hệ với chúng tôi</h2>
+            <div style="max-width: 700px; margin: 0 auto; background: var(--white-color); padding: 2.5rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                <p style="text-align: center; margin-bottom: 2rem;">Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào, xin vui lòng liên hệ với chúng tôi qua các kênh sau:</p>
+                <ul style="list-style: none; padding: 0; font-size: 1.1rem;">
+                    <li style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;"><span class="material-symbols-outlined" style="color: var(--primary-color);">mail</span> Email: support@bongropro.vn</li>
+                    <li style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;"><span class="material-symbols-outlined" style="color: var(--primary-color);">call</span> Điện thoại: 1900-123-456</li>
+                    <li style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;"><span class="material-symbols-outlined" style="color: var(--primary-color);">location_on</span> Địa chỉ: Số 123, Đường NBA, Quận Thể Thao, TP.Hồ Chí Minh</li>
+                </ul>
+                <form id="contact-form" style="margin-top: 2rem;">
+                    <input type="text" id="name" name="name" placeholder="Họ và tên của bạn" required />
+                    <input type="email" id="email" name="email" placeholder="Email của bạn" required />
+                    <textarea id="message" name="message" rows="5" placeholder="Nội dung tin nhắn của bạn" required style="width: 100%; margin-bottom: 1.5rem; padding: 0.9rem 1.2rem; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+                    <button type="submit" class="btn btn-primary btn-block">Gửi liên hệ</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="profile-page" class="page-content section-padding container">
+            <h2 class="text-center">Thông tin tài khoản</h2>
+            <div class="profile-info">
+                <h3>Xin chào, <span id="profile-username">Khách hàng</span>!</h3>
+                <p style="margin-top: 1rem;">Đây là nơi bạn có thể quản lý thông tin cá nhân và xem lại các đơn hàng đã đặt.</p>
+                <h4 style="margin-top: 2rem;">Lịch sử đơn hàng (Mô phỏng)</h4>
+                <div id="order-history">
+                    <p style="color: #666; margin-top: 1rem;">Bạn chưa có đơn hàng nào.</p>
+                </div>
+                <button id="logout-btn" class="btn btn-danger" style="margin-top: 2rem;">Đăng xuất</button>
+            </div>
+        </section>
+
+        <section id="return-policy-page" class="page-content section-padding container">
+            <div class="policy-content" id="return-policy-content"></div>
+        </section>
+
+        <section id="privacy-policy-page" class="page-content section-padding container">
+            <div class="policy-content" id="privacy-policy-content"></div>
+        </section>
+        
+        <section id="invoice-page" class="page-content section-padding container">
+            <div class="policy-content" id="invoice-content"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Về chúng tôi</h4>
+                <p>Bóng Rổ Pro Store là địa chỉ uy tín cung cấp dụng cụ bóng rổ chuyên nghiệp. Chúng tôi cam kết mang đến những sản phẩm chất lượng nhất cho người chơi.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liên kết hữu ích</h4>
+                <ul>
+                    <li><a href="#" data-page="home">Trang chủ</a></li>
+                    <li><a href="#" data-page="product">Sản phẩm</a></li>
+                    <li><a href="#" data-page="about">Về chúng tôi</a></li>
+                    <li><a href="#" data-page="return-policy">Chính sách đổi trả</a></li>
+                    <li><a href="#" data-page="privacy-policy">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Liên hệ</h4>
+                <ul>
+                    <li>Email: support@bongropro.vn</li>
+                    <li>Điện thoại: 1900-123-456</li>
+                    <li>Địa chỉ: Số 123, Đường NBA, TP.HCM</li>
+                </ul>
+                <div class="social-icons" style="margin-top: 1rem;">
+                    <a href="#" style="color: var(--white-color);"><span class="material-symbols-outlined">alternate_email</span></a>
+                    <a href="#" style="color: var(--white-color);"><span class="material-symbols-outlined">call</span></a>
+                    <a href="#" style="color: var(--white-color);"><span class="material-symbols-outlined">location_on</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="container copyright">
+            <p>&copy; 2024 Bóng Rổ Pro Store. Tất cả bản quyền đã được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <div id="search-overlay">
+        <div class="search-input-container">
+            <input type="text" id="search-input-full" placeholder="Tìm kiếm sản phẩm..." />
+            <button class="close-btn material-symbols-outlined">&times;</button>
+        </div>
+        <div class="search-results-overlay">
+            </div>
+    </div>
+
+    <div id="login-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn">&times;</button>
+            <h2 id="login-form-title">Đăng nhập</h2>
+            <form id="login-form">
+                <input type="text" placeholder="Tên đăng nhập hoặc Email" required />
+                <input type="password" placeholder="Mật khẩu" required />
+                <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+            </form>
+            <p class="text-center" style="margin-top: 1rem;">
+                Bạn chưa có tài khoản? <a href="#" id="show-signup">Đăng ký ngay</a>
+            </p>
+        </div>
+    </div>
+    
+    <div id="cart-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn">&times;</button>
+            <h2>Giỏ hàng của bạn</h2>
+            <div class="cart-search-bar">
+                <input type="text" id="cart-search-input" placeholder="Tìm trong giỏ hàng..." />
+                <span class="material-symbols-outlined">search</span>
+            </div>
+            <div id="cart-items-list">
+            </div>
+            <div class="cart-summary">
+                Tổng cộng: <span id="cart-total-price">0 đ</span>
+            </div>
+            <button id="checkout-btn" class="btn btn-primary btn-block">Thanh toán</button>
+        </div>
+    </div>
+
+    <div id="wishlist-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn">&times;</button>
+            <h2>Danh sách yêu thích</h2>
+            <div id="wishlist-items-list">
+                <p class="text-center" style="color: #666;">Danh sách yêu thích của bạn đang trống.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkout-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn">&times;</button>
+            <h2>Thanh toán</h2>
+            <form id="checkout-form">
+                <input type="text" name="name" placeholder="Họ và tên" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="text" name="phone" placeholder="Số điện thoại" required />
+                <input type="text" name="address" placeholder="Địa chỉ giao hàng" required />
+                
+                <h4 style="margin-top: 2rem;">Mã giảm giá</h4>
+                <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <input type="text" id="coupon-input" placeholder="Nhập mã giảm giá" style="margin-bottom: 0;" />
+                    <button type="button" id="apply-coupon-btn" class="btn btn-secondary">Áp dụng</button>
+                </div>
+                <div id="coupon-message" style="margin-bottom: 1rem; font-size: 0.9rem; font-weight: 600;"></div>
+
+                <h4 style="margin-top: 2rem;">Tóm tắt đơn hàng</h4>
+                <div id="checkout-cart-summary">
+                </div>
+                <div class="checkout-summary-item" id="user-discount-summary" style="display:none;">
+                    <span>Giảm giá thành viên mới:</span>
+                    <span id="user-discount-price">0 đ</span>
+                </div>
+                <div class="checkout-summary-item">
+                    <span>Tổng phụ:</span>
+                    <span id="sub-total-price">0 đ</span>
+                </div>
+                <div class="checkout-summary-item">
+                    <span>Giảm giá:</span>
+                    <span id="discount-price">0 đ</span>
+                </div>
+                <div class="checkout-summary-item">
+                    <span>Phí vận chuyển:</span>
+                    <span id="shipping-price">0 đ</span>
+                </div>
+                <div class="checkout-summary-total">
+                    Tổng cộng: <span id="checkout-total-price">0 đ</span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Xác nhận thanh toán</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="product-detail-popup" class="popup-overlay">
+        <div class="popup-content">
+            <button class="close-btn">&times;</button>
+            <div id="product-detail-content" class="product-detail-content">
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <a href="#top" id="go-to-top-btn" class="go-to-top material-symbols-outlined">arrow_upward</a>
+
+    <script>
+        const productsData = [
+            { id: 1, name: "Giày Bóng Rổ Nike Kyrie 7", price: 3500000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250801_1oyy4jwJ8Z.jpeg?v=1754024768", category: "giày", description: "Giày bóng rổ Nike Kyrie 7 với thiết kế hiện đại, hỗ trợ tối đa cho các pha bứt tốc và đổi hướng đột ngột trên sân.", brand: "Nike" },
+            { id: 2, name: "Giày Bóng Rổ Adidas Harden Vol. 5", price: 4200000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250729_886re2GHEO.jpeg?v=1753784220", category: "giày", description: "Mẫu giày đặc trưng của James Harden, mang lại sự ổn định và thoải mái vượt trội cho người chơi.", brand: "Adidas" },
+            { id: 3, name: "Bóng Rổ Wilson NBA Authentic", price: 850000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250620_t9WKz60dG7.jpeg?v=1750424800", category: "bóng", description: "Bóng rổ chính thức của NBA, với độ bám và độ nảy hoàn hảo, phù hợp cho cả tập luyện và thi đấu.", brand: "Wilson" },
+            { id: 4, name: "Bóng Rổ Spalding Street Phantom", price: 500000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250620_0t23OK8X5k.jpeg?v=1750424714", category: "bóng", description: "Bóng ngoài trời với thiết kế đặc biệt, siêu bền và khả năng chống mài mòn tốt.", brand: "Spalding" },
+            { id: 5, name: "Áo Thi Đấu Nike Dri-FIT", price: 650000, image: "https://product.hstatic.net/200000037626/product/vyll8643_6f96a45f9e074ab3a23625133750077e_grande.png", category: "quần áo", description: "Áo thi đấu công nghệ Dri-FIT giúp thấm hút mồ hôi, giữ cơ thể luôn khô thoáng và thoải mái.", brand: "Nike" },
+            { id: 6, name: "Quần Short Adidas 3-Stripes", price: 550000, image: "https://product.hstatic.net/200000037626/product/573_e2c9923ffca64a2ebb0e41d01fec7ae4_large.png", category: "quần áo", description: "Quần short với thiết kế cổ điển 3 sọc, chất liệu nhẹ và co giãn tốt, phù hợp cho mọi hoạt động thể thao.", brand: "Adidas" },
+            { id: 7, name: "Ống Tay Bảo Vệ Nike Pro", price: 250000, image: "https://golfgroup.com.vn/wp-content/uploads/2020/12/ong-tay-golf-nike-892304-100-1.jpg", category: "phụ kiện", description: "Ống tay nén giúp bảo vệ khuỷu tay, tăng cường lưu thông máu và giảm chấn thương.", brand: "Nike" },
+            { id: 8, name: "Băng Đô Adidas Logo", price: 150000, image: "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/46ca68ff718145c496d7aefa0114b7af_9366/Bang_DJo_Tennis_trang_HT3908_01_00_standard.jpg", category: "phụ kiện", description: "Băng đô thấm hút mồ hôi, giữ tóc gọn gàng và tránh mồ hôi chảy xuống mắt khi thi đấu.", brand: "Adidas" },
+            { id: 9, name: "Giày Bóng Rổ Puma Rise NITRO", price: 3900000, image: "https://product.hstatic.net/200000037626/product/vyle-903_7e80193ac37e4397a1da2dcbcc9b78d9_grande.jpg", category: "giày", description: "Công nghệ NITRO tiên tiến giúp tăng cường độ nảy và giảm chấn, mang lại trải nghiệm thi đấu bùng nổ.", brand: "Puma" },
+            { id: 10, name: "Bóng Rổ Molten B7G4500", price: 950000, image: "https://product.hstatic.net/200000037626/product/vyll6398_4a344c2f08aa48828dbf24deae267cb8_large.png", category: "bóng", description: "Bóng thi đấu chính thức của FIBA, với chất liệu da PU cao cấp cho độ bền và cảm giác bóng tuyệt vời.", brand: "Molten" },
+            { id: 11, name: "Giày Bóng Rổ Nike LeBron 19", price: 5800000, image: "https://product.hstatic.net/200000037626/product/vyll9479_eabdf6dc0bd74a88aae2c8ffced4f728_grande.png", category: "giày", description: "Giày thi đấu đỉnh cao của LeBron James, với hệ thống đệm khí kép mang lại khả năng phản hồi năng lượng tuyệt vời.", brand: "Nike" },
+            { id: 12, name: "Giày Bóng Rổ Under Armour Curry 9", price: 4500000, image: "https://product.hstatic.net/200000037626/product/vyll3216_96f107e2014d41bc97f070040892d9ac_grande.png", category: "giày", description: "Mẫu giày signature của Stephen Curry, nhẹ và linh hoạt, giúp tăng tốc độ và sự nhanh nhẹn trên sân.", brand: "Under Armour" },
+            { id: 13, name: "Bóng Rổ Molten B6G4500", price: 900000, image: "https://product.hstatic.net/200000037626/product/vyll1752_e48560b865be43d7b145764a51f07eb5_large.png", category: "bóng", description: "Phiên bản size 6 của Molten BG4500, được thiết kế đặc biệt cho các cầu thủ nữ và thanh thiếu niên.", brand: "Molten" },
+            { id: 14, name: "Bơm Bóng Cầm Tay Nike", price: 180000, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXRRwWoJLlNplx79mCXnT68V_MSs5WNY6m6g&s", category: "phụ kiện", description: "Bơm bóng nhỏ gọn, tiện lợi mang theo, đảm bảo quả bóng của bạn luôn đủ áp suất.", brand: "Nike" },
+            { id: 15, name: "Tấm Chắn Mồ Hôi Nike", price: 120000, image: "https://sieuthicaulong.vn/images/product/1706947293-d38a608cd80a4e1a9323113765d4743c.jpg", category: "phụ kiện", description: "Băng đô thấm hút mồ hôi hiệu quả, giúp bạn giữ tập trung tối đa trong trận đấu.", brand: "Nike" },
+            { id: 16, name: "Quần Short Tập Luyện Under Armour", price: 700000, image: "https://product.hstatic.net/200000037626/product/vyll7340_87af56e245a749b4b5c038ce508addcc_large.png", category: "quần áo", description: "Quần short với chất liệu HeatGear® siêu nhẹ, giúp bạn luôn thoải mái và khô ráo.", brand: "Under Armour" },
+            { id: 17, name: "Áo Thi Đấu Li-ning Flash", price: 800000, image: "https://plus.unsplash.com/premium_photo-1668609661093-5929acf7f2e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFza2V0YmFsbCUyMGplcnNleXxlbnwwfHwwfHx8MA%3D%3D", category: "quần áo", description: "Áo thi đấu chuyên nghiệp của Li-ning, chất liệu thoáng khí, co giãn 4 chiều.", brand: "Li-ning" },
+            { id: 23, name: "Bơm Bóng Cầm Tay Molten", price: 150000, image: "https://bizweb.dktcdn.net/100/232/793/products/molten-1.jpg?v=1685009430826", category: "phụ kiện", description: "Bơm bóng tiện dụng, có đồng hồ đo áp suất, giúp bơm bóng nhanh chóng và chính xác.", brand: "Molten" },
+            { id: 24, name: "Áo Ba Lỗ Nike Jordan", price: 750000, image: "htthttps://images.unsplash.com/photo-1698322830976-4a3fdfb293d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbCUyMGplcnNleXxlbnwwfHwwfHx8MA%3D%3Dps://bizweb.dktcdn.net/100/232/793/products/ao-jordan-1.jpg?v=1685009430826", category: "quần áo", description: "Áo ba lỗ phong cách Jordan, thoải mái và thoáng mát, lý tưởng cho việc tập luyện và chơi bóng.", brand: "Nike" },
+            { id: 25, name: "Bóng Rổ Wilson Jet", price: 600000, image: "https://bizweb.dktcdn.net/100/232/793/products/wilson-1.jpg?v=1685009430826", category: "bóng", description: "Bóng rổ tiêu chuẩn thi đấu, có độ bền cao và cảm giác cầm nắm chắc chắn.", brand: "Wilson" },
+            { id: 26, name: "Túi Đeo Chéo Nike", price: 400000, image: "https://bizweb.dktcdn.net/100/232/793/products/tui-nike-1.jpg?v=1685009430826", category: "phụ kiện", description: "Túi nhỏ gọn, tiện lợi để đựng các phụ kiện cần thiết khi ra sân.", brand: "Nike" }
+        ];
+
+        const featuredProducts = productsData.slice(0, 4);
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let couponAppliedRate = 0; // Mức giảm giá từ coupon
+        const newUserDiscountRate = 0.27; // Mức giảm giá 27% cho thành viên mới
+        let isNewUser = false; // Cờ để kiểm tra thành viên mới
+        let shippingFee = 0;
+        let currentPage = 1;
+        const productsPerPage = 12;
+        let filteredProducts = [...productsData];
+        let isLoggedIn = false;
+        let userName = '';
+        let userOrders = JSON.parse(localStorage.getItem('userOrders')) || [];
+        
+        // Nội dung Chính sách
+        const returnPolicyContent = `
+            <h2>Chính sách đổi trả hàng</h2>
+            <p>Chính sách này được xây dựng để đảm bảo quyền lợi tốt nhất cho khách hàng khi mua sắm tại Bóng Rổ Pro Store.</p>
+            <h4>1. Điều kiện áp dụng</h4>
+            <ul>
+                <li>Sản phẩm còn nguyên vẹn, đầy đủ tem mác, bao bì, hóa đơn mua hàng và các phụ kiện đi kèm (nếu có).</li>
+                <li>Sản phẩm chưa qua sử dụng, chưa giặt ủi, không có mùi lạ hoặc dấu hiệu hư hỏng khác.</li>
+                <li>Thời gian đổi trả trong vòng <b>7 ngày</b> kể từ ngày khách hàng nhận được sản phẩm.</li>
+            </ul>
+            <h4>2. Trường hợp được đổi trả</h4>
+            <ul>
+                <li><b>Lỗi từ nhà sản xuất:</b> Sản phẩm bị rách, bung chỉ, hỏng hóc kỹ thuật (đối với giày, phụ kiện) ngay khi nhận hàng.</li>
+                <li><b>Giao sai sản phẩm:</b> Giao sai mẫu mã, màu sắc, kích thước hoặc số lượng so với đơn hàng đã đặt.</li>
+                <li><b>Sản phẩm không vừa:</b> Khách hàng có thể đổi size sản phẩm nếu sản phẩm còn nguyên vẹn và còn size phù hợp.</li>
+                <li><b>Hàng hóa bị hư hỏng do vận chuyển:</b> Sản phẩm bị móp méo, vỡ, rách bao bì hoặc hư hỏng trong quá trình giao hàng.</li>
+            </ul>
+            <h4>3. Trường hợp không được đổi trả</h4>
+            <ul>
+                <li>Sản phẩm đã quá thời gian 7 ngày kể từ ngày nhận hàng.</li>
+                <li>Sản phẩm đã được sử dụng, có dấu hiệu bẩn, trầy xước hoặc hư hỏng do khách hàng gây ra.</li>
+                <li>Sản phẩm thuộc chương trình khuyến mãi, giảm giá đặc biệt.</li>
+                <li>Sản phẩm đã được điều chỉnh, thay đổi thiết kế theo yêu cầu riêng của khách hàng.</li>
+            </ul>
+            <h4>4. Quy trình đổi trả</h4>
+            <ul>
+                <li><b>Bước 1: Liên hệ với chúng tôi:</b> Khách hàng cần liên hệ ngay với Bộ phận Chăm sóc khách hàng qua email support@bongropro.vn hoặc hotline 1900-123-456. Vui lòng cung cấp mã đơn hàng và hình ảnh/video rõ nét về lỗi sản phẩm.</li>
+                <li><b>Bước 2: Xác nhận và chuẩn bị:</b> Sau khi xác nhận yêu cầu của bạn đủ điều kiện, chúng tôi sẽ hướng dẫn bạn cách đóng gói sản phẩm và gửi về địa chỉ cửa hàng.</li>
+                <li><b>Bước 3: Gửi hàng:</b> Khách hàng gửi sản phẩm về địa chỉ đã được cung cấp. Chúng tôi sẽ chịu toàn bộ chi phí vận chuyển đối với lỗi từ nhà sản xuất hoặc giao sai hàng.</li>
+                <li><b>Bước 4: Nhận sản phẩm mới:</b> Sau khi nhận và kiểm tra sản phẩm, chúng tôi sẽ gửi lại sản phẩm mới hoặc hoàn tiền cho bạn trong vòng 3-5 ngày làm việc.</li>
+            </ul>
+        `;
+        const privacyPolicyContent = `
+            <h2>Chính sách bảo mật thông tin</h2>
+            <p>Bóng Rổ Pro Store cam kết bảo vệ thông tin cá nhân của khách hàng, đảm bảo sự an toàn và minh bạch. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn.</p>
+            <h4>1. Mục đích thu thập thông tin</h4>
+            <p>Chúng tôi thu thập thông tin cá nhân của khách hàng nhằm các mục đích sau:</p>
+            <ul>
+                <li>Xử lý và hoàn tất các đơn hàng.</li>
+                <li>Giao hàng và hỗ trợ khách hàng.</li>
+                <li>Cá nhân hóa trải nghiệm mua sắm trên website.</li>
+                <li>Gửi thông tin khuyến mãi, ưu đãi và tin tức sản phẩm (nếu bạn đồng ý).</li>
+                <li>Phòng chống gian lận và bảo mật hệ thống.</li>
+            </ul>
+            <h4>2. Loại thông tin thu thập</h4>
+            <p>Các thông tin chúng tôi thu thập có thể bao gồm:</p>
+            <ul>
+                <li>Thông tin cá nhân: Họ và tên, địa chỉ email, số điện thoại, địa chỉ giao hàng.</li>
+                <li>Thông tin thanh toán: Chi tiết thẻ tín dụng/thẻ ghi nợ hoặc tài khoản ngân hàng (các thông tin này được xử lý bởi các đối tác thanh toán uy tín và không được lưu trữ trên hệ thống của chúng tôi).</li>
+                <li>Lịch sử mua hàng: Các sản phẩm đã xem, đã mua.</li>
+                <li>Dữ liệu kỹ thuật: Địa chỉ IP, loại trình duyệt, hệ điều hành (được sử dụng để cải thiện trải nghiệm website).</li>
+            </ul>
+            <h4>3. Thời gian lưu trữ thông tin</h4>
+            <p>Thông tin cá nhân của khách hàng sẽ được lưu trữ trên hệ thống của Bóng Rổ Pro Store cho đến khi bạn yêu cầu xóa hoặc tự xóa tài khoản. Dữ liệu này sẽ chỉ được sử dụng trong phạm vi chính sách đã nêu.</p>
+            <h4>4. Cam kết bảo mật</h4>
+            <ul>
+                <li>Chúng tôi sử dụng công nghệ mã hóa <b>SSL</b> để bảo vệ dữ liệu truyền tải giữa trình duyệt của bạn và máy chủ của chúng tôi.</li>
+                <li>Mọi thông tin cá nhân đều được lưu trữ trên các máy chủ an toàn, được bảo vệ bằng các hệ thống bảo mật vật lý và điện tử.</li>
+                <li>Chúng tôi không chia sẻ, bán hoặc trao đổi thông tin khách hàng cho bên thứ ba ngoại trừ các trường hợp cần thiết để hoàn tất đơn hàng (ví dụ: cung cấp địa chỉ cho đơn vị vận chuyển).</li>
+            </ul>
+            <h4>5. Quyền của khách hàng</h4>
+            <p>Bạn có quyền:</p>
+            <ul>
+                <li>Yêu cầu truy cập, chỉnh sửa hoặc cập nhật thông tin cá nhân.</li>
+                <li>Yêu cầu xóa tài khoản và toàn bộ dữ liệu cá nhân.</li>
+                <li>Từ chối nhận các thông tin quảng cáo, marketing từ chúng tôi.</li>
+            </ul>
+            <p>Để thực hiện các quyền này, vui lòng liên hệ với chúng tôi qua email support@bongropro.vn.</p>
+        `;
+
+        // DOM elements
+        const productListContainer = document.getElementById("product-list-container");
+        const filteredProductsContainer = document.getElementById("filtered-products-container");
+        const cartItemsList = document.getElementById('cart-items-list');
+        const cartCount = document.getElementById('cart-count');
+        const wishlistCount = document.getElementById('wishlist-count');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const checkoutPopup = document.getElementById('checkout-popup');
+        const checkoutSummary = document.getElementById('checkout-cart-summary');
+        const subTotalPriceEl = document.getElementById('sub-total-price');
+        const discountPriceEl = document.getElementById('discount-price');
+        const shippingPriceEl = document.getElementById('shipping-price');
+        const checkoutTotalPriceEl = document.getElementById('checkout-total-price');
+        const searchInput = document.getElementById('search-input');
+        const cartSearchInput = document.getElementById('cart-search-input');
+        const priceFilter = document.getElementById('price-filter');
+        const brandFilter = document.getElementById('brand-filter');
+        const sortBySelect = document.getElementById('sort-by');
+        const categoryFilterButtons = document.querySelectorAll('.category-filter-btn');
+        const couponInput = document.getElementById('coupon-input');
+        const applyCouponBtn = document.getElementById('apply-coupon-btn');
+        const couponMessage = document.getElementById('coupon-message');
+        const goToTopBtn = document.getElementById('go-to-top-btn');
+        const loginBtn = document.getElementById('login-btn');
+        const authContainer = document.getElementById('auth-buttons-container');
+        const pageInfoEl = document.getElementById('page-info');
+        const prevPageBtn = document.getElementById('prev-page-btn');
+        const nextPageBtn = document.getElementById('next-page-btn');
+        const wishlistItemsList = document.getElementById('wishlist-items-list');
+        const profileUsernameEl = document.getElementById('profile-username');
+        const orderHistoryEl = document.getElementById('order-history');
+        const returnPolicyContentEl = document.getElementById('return-policy-content');
+        const privacyPolicyContentEl = document.getElementById('privacy-policy-content');
+        const invoiceContentEl = document.getElementById('invoice-content');
+
+        const newUserDiscountSummaryEl = document.getElementById('user-discount-summary');
+        const newUserDiscountPriceEl = document.getElementById('user-discount-price');
+        
+        // Populate brand filter
+        const brands = [...new Set(productsData.map(p => p.brand))].sort();
+        brands.forEach(brand => {
+            const option = document.createElement('option');
+            option.value = brand;
+            option.textContent = brand;
+            brandFilter.appendChild(option);
+        });
+
+        function formatPrice(price) {
+            return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        }
+
+        function renderProducts(container, products) {
+            container.innerHTML = "";
+            if (products.length === 0) {
+                container.innerHTML = `<p class="text-center">Không tìm thấy sản phẩm nào.</p>`;
+            } else {
+                const start = (currentPage - 1) * productsPerPage;
+                const end = start + productsPerPage;
+                const paginatedProducts = products.slice(start, end);
+
+                paginatedProducts.forEach(product => {
+                    const productCard = document.createElement("div");
+                    productCard.classList.add("product-card");
+                    productCard.setAttribute("data-id", product.id);
+                    const isInWishlist = wishlist.some(item => item.id === product.id);
+                    const wishlistIcon = isInWishlist ? 'favorite' : 'favorite_border';
+                    productCard.innerHTML = `
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy" />
+                        </div>
+                        <div class="product-card-info">
+                            <h3>${product.name}</h3>
+                            <div class="product-rating">
+                                <span class="material-symbols-outlined star filled">star</span>
+                                <span class="material-symbols-outlined star filled">star</span>
+                                <span class="material-symbols-outlined star filled">star</span>
+                                <span class="material-symbols-outlined star filled">star</span>
+                                <span class="material-symbols-outlined star">star</span>
+                            </div>
+                            <p>${formatPrice(product.price)}</p>
+                        </div>
+                        <button class="wishlist-btn" data-id="${product.id}">
+                            <span class="material-symbols-outlined">${wishlistIcon}</span>
+                        </button>
+                    `;
+                    container.appendChild(productCard);
+                });
+                updatePaginationControls(products.length);
+            }
+        }
+        
+        function updatePaginationControls(totalProducts) {
+            const totalPages = Math.ceil(totalProducts / productsPerPage);
+            pageInfoEl.textContent = `Trang ${currentPage} / ${totalPages}`;
+            prevPageBtn.disabled = currentPage === 1;
+            nextPageBtn.disabled = currentPage === totalPages;
+        }
+
+        function renderCart() {
+            const searchTerm = cartSearchInput.value.toLowerCase();
+            const filteredCart = cart.filter(item => 
+                item.name.toLowerCase().includes(searchTerm)
+            );
+            
+            cartItemsList.innerHTML = '';
+            let total = 0;
+            
+            if (filteredCart.length === 0) {
+                cartItemsList.innerHTML = '<p class="text-center" style="color: #666;">Không có sản phẩm nào trong giỏ hàng phù hợp với tìm kiếm.</p>';
+            } else {
+                filteredCart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.setAttribute('data-id', item.id);
+                    cartItem.innerHTML = `
+                        <div class="cart-item-info">
+                            <img src="${item.image}" alt="${item.name}" />
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${formatPrice(item.price)}</p>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-minus-btn btn-circle" data-id="${item.id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-plus-btn btn-circle" data-id="${item.id}">+</button>
+                        </div>
+                        <div class="cart-item-total">
+                            ${formatPrice(itemTotal)}
+                        </div>
+                        <button class="remove-item-btn btn-danger btn-circle" data-id="${item.id}">
+                             <span class="material-symbols-outlined" style="font-size: 1.2rem;">delete</span>
+                        </button>
+                    `;
+                    cartItemsList.appendChild(cartItem);
+                });
+            }
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartTotalPrice.textContent = formatPrice(total);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
+        function renderWishlist() {
+            wishlistItemsList.innerHTML = '';
+            if (wishlist.length === 0) {
+                wishlistItemsList.innerHTML = '<p class="text-center" style="color: #666;">Danh sách yêu thích của bạn đang trống.</p>';
+            } else {
+                wishlist.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card');
+                    productCard.setAttribute('data-id', product.id);
+                    productCard.innerHTML = `
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy" />
+                        </div>
+                        <div class="product-card-footer">
+                            <h3>${product.name}</h3>
+                            <p>${formatPrice(product.price)}</p>
+                            <button class="btn btn-primary add-to-cart-from-wishlist-btn" data-id="${product.id}">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                            <button class="wishlist-btn remove-from-wishlist-btn" data-id="${product.id}">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </div>
+                    `;
+                    wishlistItemsList.appendChild(productCard);
+                });
+            }
+            wishlistCount.textContent = wishlist.length;
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        function addToCart(product, quantity = 1) {
+            const existingItem = cart.find(item => item.id === product.id);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ ...product, quantity });
+            }
+            renderCart();
+            showToast(`${product.name} đã được thêm vào giỏ hàng!`);
+        }
+
+        function toggleWishlist(product) {
+            const existingItem = wishlist.find(item => item.id === product.id);
+            if (existingItem) {
+                wishlist = wishlist.filter(item => item.id !== product.id);
+                showToast(`${product.name} đã được xóa khỏi danh sách yêu thích.`);
+            } else {
+                wishlist.push(product);
+                showToast(`${product.name} đã được thêm vào danh sách yêu thích!`);
+            }
+            renderProducts(filteredProductsContainer, filteredProducts);
+            renderWishlist();
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(i => i.id == productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id != productId);
+                }
+            }
+            renderCart();
+        }
+
+        function removeItemFromCart(productId) {
+            cart = cart.filter(i => i.id != productId);
+            renderCart();
+        }
+
+        function renderOrderHistory() {
+            orderHistoryEl.innerHTML = '';
+            if (userOrders.length === 0) {
+                orderHistoryEl.innerHTML = '<p style="color: #666; margin-top: 1rem;">Bạn chưa có đơn hàng nào.</p>';
+            } else {
+                userOrders.forEach((order, index) => {
+                    const orderTotal = order.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                    const orderElement = document.createElement('div');
+                    orderElement.classList.add('order-item');
+                    orderElement.style.borderBottom = '1px solid #e0e0e0';
+                    orderElement.style.padding = '1rem 0';
+                    orderElement.innerHTML = `
+                        <h4>Đơn hàng #${order.id} - ${order.date}</h4>
+                        <p>Tổng tiền: ${formatPrice(order.finalTotal)}</p>
+                        <p>Trạng thái: **Đã giao hàng**</p>
+                    `;
+                    orderHistoryEl.appendChild(orderElement);
+                });
+            }
+        }
+        
+        // Initial render
+        renderProducts(productListContainer, featuredProducts);
+        renderCart();
+        renderWishlist();
+        updateAuthUI();
+        
+        const navLinks = document.querySelectorAll('header nav a');
+        const pageContentSections = document.querySelectorAll('.page-content');
+        const allPageButtons = document.querySelectorAll('[data-page]');
+
+        function showPage(pageId, category = 'all') {
+            pageContentSections.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId + '-page').classList.add('active');
+
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeNav = document.querySelector(`header nav a[data-page="${pageId}"]`);
+            if (activeNav) activeNav.classList.add('active');
+
+            if (pageId === 'product') {
+                applyFilters(category);
+            }
+            if (pageId === 'profile') {
+                profileUsernameEl.textContent = userName;
+                renderOrderHistory();
+            }
+            if (pageId === 'return-policy') {
+                returnPolicyContentEl.innerHTML = returnPolicyContent;
+            }
+            if (pageId === 'privacy-policy') {
+                privacyPolicyContentEl.innerHTML = privacyPolicyContent;
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        allPageButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = e.currentTarget.dataset.page;
+                const category = e.currentTarget.dataset.category || 'all';
+                showPage(pageId, category);
+            });
+        });
+
+        function applyFilters(category = null) {
+            currentPage = 1;
+            const currentCategory = category || document.querySelector('.category-filter-btn.active').dataset.category;
+            const searchTerm = searchInput.value.toLowerCase();
+            const priceRange = priceFilter.value;
+            const selectedBrand = brandFilter.value;
+            const sortBy = sortBySelect.value;
+
+            filteredProducts = productsData;
+            
+            if (currentCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.category === currentCategory);
+            }
+            if (selectedBrand !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.brand === selectedBrand);
+            }
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(p => 
+                    p.name.toLowerCase().includes(searchTerm) || 
+                    p.description.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            if (priceRange === 'under500') {
+                filteredProducts = filteredProducts.filter(p => p.price <= 500000);
+            } else if (priceRange === '500-2m') {
+                filteredProducts = filteredProducts.filter(p => p.price > 500000 && p.price <= 2000000);
+            } else if (priceRange === 'over2m') {
+                filteredProducts = filteredProducts.filter(p => p.price > 2000000);
+            }
+            
+            // Apply sorting
+            if (sortBy === 'price-asc') {
+                filteredProducts.sort((a, b) => a.price - b.price);
+            } else if (sortBy === 'price-desc') {
+                filteredProducts.sort((a, b) => b.price - a.price);
+            } else if (sortBy === 'name-asc') {
+                filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            renderProducts(filteredProductsContainer, filteredProducts);
+
+            categoryFilterButtons.forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.querySelector(`.category-filter-btn[data-category="${currentCategory}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+        }
+        
+        categoryFilterButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const category = e.currentTarget.dataset.category;
+                applyFilters(category);
+            });
+        });
+        
+        searchInput.addEventListener('input', () => applyFilters());
+        priceFilter.addEventListener('change', () => applyFilters());
+        brandFilter.addEventListener('change', () => applyFilters());
+        sortBySelect.addEventListener('change', () => applyFilters());
+
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderProducts(filteredProductsContainer, filteredProducts);
+            }
+        });
+
+        nextPageBtn.addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderProducts(filteredProductsContainer, filteredProducts);
+            }
+        });
+
+        const productDetailPopup = document.getElementById('product-detail-popup');
+        const productDetailContent = document.getElementById('product-detail-content');
+        
+        function showProductDetail(product) {
+            productDetailContent.innerHTML = `
+                <div class="product-detail-image">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                </div>
+                <div class="product-detail-info">
+                    <h3>${product.name}</h3>
+                    <div class="product-rating">
+                        <span class="material-symbols-outlined star filled">star</span>
+                        <span class="material-symbols-outlined star filled">star</span>
+                        <span class="material-symbols-outlined star filled">star</span>
+                        <span class="material-symbols-outlined star">star</span>
+                        <span class="material-symbols-outlined star">star</span>
+                        <span>(3.0/5)</span>
+                        <span class="review-count">(12 đánh giá)</span>
+                    </div>
+                    <p class="price">${formatPrice(product.price)}</p>
+                    <p class="description">${product.description}</p>
+                    <button class="btn add-to-cart-btn" data-id="${product.id}">
+                        <span class="material-symbols-outlined">add_shopping_cart</span>
+                        Thêm vào giỏ hàng
+                    </button>
+                </div>
+            `;
+            productDetailPopup.classList.add('show');
+        }
+        
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.product-card')) {
+                const productId = e.target.closest('.product-card').dataset.id;
+                const product = productsData.find(p => p.id == productId);
+                if (product) {
+                    showProductDetail(product);
+                }
+            }
+            if (e.target.closest('.add-to-cart-btn')) {
+                const productId = e.target.closest('.add-to-cart-btn').dataset.id;
+                const product = productsData.find(p => p.id == productId);
+                if (product) {
+                    addToCart(product);
+                    productDetailPopup.classList.remove('show');
+                }
+            }
+            if (e.target.closest('.wishlist-btn')) {
+                const productId = e.target.closest('.wishlist-btn').dataset.id;
+                const product = productsData.find(p => p.id == productId);
+                if (product) {
+                    toggleWishlist(product);
+                }
+            }
+            if (e.target.closest('.add-to-cart-from-wishlist-btn')) {
+                 const productId = e.target.closest('.add-to-cart-from-wishlist-btn').dataset.id;
+                 const product = wishlist.find(p => p.id == productId);
+                 if (product) {
+                    addToCart(product);
+                 }
+            }
+            if (e.target.closest('.remove-from-wishlist-btn')) {
+                const productId = e.target.closest('.remove-from-wishlist-btn').dataset.id;
+                const product = wishlist.find(p => p.id == productId);
+                if (product) {
+                    toggleWishlist(product);
+                }
+            }
+            if (e.target.closest('.quantity-plus-btn')) {
+                const productId = e.target.closest('.quantity-plus-btn').dataset.id;
+                updateQuantity(productId, 1);
+            }
+            if (e.target.closest('.quantity-minus-btn')) {
+                const productId = e.target.closest('.quantity-minus-btn').dataset.id;
+                updateQuantity(productId, -1);
+            }
+            if (e.target.closest('.remove-item-btn')) {
+                const productId = e.target.closest('.remove-item-btn').dataset.id;
+                removeItemFromCart(productId);
+            }
+        });
+        
+        document.querySelectorAll('.popup-overlay .close-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.popup-overlay').classList.remove('show');
+            });
+        });
+        
+        document.querySelectorAll('.popup-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('show');
+                }
+            });
+        });
+        
+        // Pop-up handlers
+        document.getElementById('cart-btn').addEventListener('click', () => {
+            renderCart();
+            document.getElementById('cart-popup').classList.add('show');
+        });
+        document.getElementById('wishlist-btn').addEventListener('click', () => {
+            renderWishlist();
+            document.getElementById('wishlist-popup').classList.add('show');
+        });
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            document.getElementById('cart-popup').classList.remove('show');
+            showCheckoutPopup();
+        });
+
+        function calculateTotalPrice() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Lấy mức giảm giá lớn nhất
+            let discountRate = couponAppliedRate;
+            if (isNewUser) {
+                 discountRate = Math.max(newUserDiscountRate, couponAppliedRate);
+            }
+
+            const discount = subtotal * discountRate;
+            const finalShippingFee = subtotal >= 1000000 ? 0 : 30000;
+            const total = subtotal - discount + finalShippingFee;
+            
+            subTotalPriceEl.textContent = formatPrice(subtotal);
+            discountPriceEl.textContent = `-${formatPrice(discount)}`;
+            shippingPriceEl.textContent = formatPrice(finalShippingFee);
+            checkoutTotalPriceEl.textContent = formatPrice(total);
+
+            // Cập nhật hiển thị giảm giá thành viên mới
+            if (isNewUser && newUserDiscountRate >= couponAppliedRate) {
+                newUserDiscountSummaryEl.style.display = 'flex';
+                newUserDiscountPriceEl.textContent = `-${formatPrice(subtotal * newUserDiscountRate)}`;
+                couponInput.disabled = true;
+                applyCouponBtn.disabled = true;
+                couponMessage.textContent = 'Ưu đãi thành viên mới đã được áp dụng tự động.';
+                couponMessage.style.color = 'var(--success-color)';
+            } else {
+                newUserDiscountSummaryEl.style.display = 'none';
+                couponInput.disabled = false;
+                applyCouponBtn.disabled = false;
+                if(couponAppliedRate > 0) {
+                     couponMessage.textContent = `Mã giảm giá ${couponInput.value.toUpperCase()} đã được áp dụng.`;
+                     couponMessage.style.color = 'var(--success-color)';
+                } else {
+                    couponMessage.textContent = '';
+                }
+            }
+            return { subtotal, discount, finalShippingFee, total };
+        }
+
+        applyCouponBtn.addEventListener('click', () => {
+            const couponCode = couponInput.value.toUpperCase();
+            if (couponCode === 'SALE20') {
+                couponAppliedRate = 0.2;
+                couponMessage.textContent = 'Mã giảm giá đã được áp dụng (20%)!';
+                couponMessage.style.color = 'var(--success-color)';
+            } else {
+                couponAppliedRate = 0;
+                couponMessage.textContent = 'Mã giảm giá không hợp lệ.';
+                couponMessage.style.color = 'var(--danger-color)';
+            }
+            calculateTotalPrice();
+        });
+        
+        function showCheckoutPopup() {
+            checkoutSummary.innerHTML = '';
+            
+            if (cart.length === 0) {
+                checkoutSummary.innerHTML = `<p style="text-align: center; color: #666;">Giỏ hàng của bạn đang trống.</p>`;
+                document.getElementById('checkout-form').querySelector('button[type="submit"]').disabled = true;
+            } else {
+                document.getElementById('checkout-form').querySelector('button[type="submit"]').disabled = false;
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    checkoutSummary.innerHTML += `
+                        <div class="checkout-summary-item">
+                            <span>${item.name} (x${item.quantity})</span>
+                            <span>${formatPrice(itemTotal)}</span>
+                        </div>
+                    `;
+                });
+            }
+            calculateTotalPrice();
+            checkoutPopup.classList.add('show');
+        }
+
+        // Chức năng xuất hóa đơn
+        function generateInvoice(customerName, orderDetails) {
+            const invoiceContent = `
+                <h2 style="text-align: center; color: var(--primary-color);">HÓA ĐƠN MUA HÀNG</h2>
+                <p><b>Cửa hàng:</b> Bóng Rổ Pro Store</p>
+                <p><b>Địa chỉ:</b> Số 123, Đường NBA, Quận Thể Thao, TP.Hồ Chí Minh</p>
+                <p><b>Số điện thoại:</b> 1900-123-456</p>
+                <hr style="margin: 1rem 0;">
+                <p><b>Tên khách hàng:</b> ${customerName}</p>
+                <p><b>Ngày mua hàng:</b> ${new Date().toLocaleDateString('vi-VN')}</p>
+                <p><b>Mã đơn hàng:</b> #${userOrders.length + 1}</p>
+                <hr style="margin: 1rem 0;">
+                <h4>Chi tiết sản phẩm:</h4>
+                <ul style="list-style: none; padding: 0;">
+                    ${orderDetails}
+                </ul>
+                <hr style="margin: 1rem 0;">
+                <div style="font-size: 1.1rem;">
+                    <p style="display: flex; justify-content: space-between;"><span>Tổng phụ:</span> <span>${subTotalPriceEl.textContent}</span></p>
+                    <p style="display: flex; justify-content: space-between;"><span>Giảm giá:</span> <span style="color: var(--danger-color);">${discountPriceEl.textContent}</span></p>
+                    <p style="display: flex; justify-content: space-between;"><span>Phí vận chuyển:</span> <span>${shippingPriceEl.textContent}</span></p>
+                    <p style="display: flex; justify-content: space-between; font-weight: bold;"><span>TỔNG CỘNG:</span> <span>${checkoutTotalPriceEl.textContent}</span></p>
+                </div>
+                <p style="text-align: center; margin-top: 2rem;">Cảm ơn bạn đã mua sắm tại Bóng Rổ Pro Store!</p>
+            `;
+            return invoiceContent;
+        }
+
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const customerName = e.target.querySelector('input[name="name"]').value || userName;
+            const totals = calculateTotalPrice();
+            const orderItemsDetails = cart.map(item => `<li>- ${item.name} (x${item.quantity}): ${formatPrice(item.price * item.quantity)}</li>`).join('');
+            
+            // Generate and display invoice
+            const invoiceHTML = generateInvoice(customerName, orderItemsDetails);
+            invoiceContentEl.innerHTML = `
+                <div style="padding: 2rem; border: 1px solid #ccc; border-radius: 12px; background: #fff;">
+                    ${invoiceHTML}
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button onclick="window.print()" class="btn btn-primary">In hóa đơn</button>
+                    <button onclick="window.location.reload()" class="btn btn-ghost">Tiếp tục mua sắm</button>
+                </div>
+            `;
+            showPage('invoice');
+            
+            // Add to order history
+            const newOrder = {
+                id: userOrders.length + 1,
+                date: new Date().toLocaleDateString('vi-VN'),
+                items: [...cart],
+                finalTotal: totals.total
+            };
+            userOrders.push(newOrder);
+            localStorage.setItem('userOrders', JSON.stringify(userOrders));
+            
+            // Reset cart and checkout state
+            cart = [];
+            renderCart();
+            checkoutPopup.classList.remove('show');
+            e.target.reset();
+            couponAppliedRate = 0;
+            isNewUser = false;
+            shippingFee = 0;
+            couponInput.value = '';
+            couponInput.disabled = false;
+            applyCouponBtn.disabled = false;
+            couponMessage.textContent = '';
+        });
+        
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast show ${type}`;
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+        
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất có thể.', 'success');
+            e.target.reset();
+        });
+        
+        // Authentication functions
+        function updateAuthUI() {
+            if (isLoggedIn) {
+                authContainer.innerHTML = `
+                    <div class="user-info">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <a href="#" data-page="profile">Xin chào, ${userName}!</a>
+                    </div>
+                `;
+            } else {
+                authContainer.innerHTML = `
+                    <button id="login-btn" class="btn btn-ghost btn-small">
+                        <span class="material-symbols-outlined">account_circle</span> Đăng nhập
+                    </button>
+                `;
+            }
+        }
+        
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#login-btn')) {
+                document.getElementById('login-popup').classList.add('show');
+            } else if (e.target.closest('#logout-btn')) {
+                isLoggedIn = false;
+                isNewUser = false;
+                userName = '';
+                showToast('Bạn đã đăng xuất.', 'info');
+                updateAuthUI();
+                showPage('home');
+            }
+            else if (e.target.matches('#show-signup')) {
+                e.preventDefault();
+                const loginPopup = document.getElementById('login-popup');
+                loginPopup.querySelector('#login-form-title').textContent = 'Đăng ký';
+                loginPopup.querySelector('.btn-primary').textContent = 'Đăng ký';
+                loginPopup.querySelector('p').innerHTML = 'Bạn đã có tài khoản? <a href="#" id="show-login">Đăng nhập</a>';
+            } else if (e.target.matches('#show-login')) {
+                e.preventDefault();
+                const loginPopup = document.getElementById('login-popup');
+                loginPopup.querySelector('#login-form-title').textContent = 'Đăng nhập';
+                loginPopup.querySelector('.btn-primary').textContent = 'Đăng nhập';
+                loginPopup.querySelector('p').innerHTML = 'Bạn chưa có tài khoản? <a href="#" id="show-signup">Đăng ký ngay</a>';
+            }
+        });
+        
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formTitle = document.getElementById('login-form-title').textContent;
+            const usernameInput = e.target.querySelector('input[type="text"]');
+            userName = usernameInput.value || 'Khách hàng';
+            isLoggedIn = true;
+            document.getElementById('login-popup').classList.remove('show');
+            
+            if (formTitle === 'Đăng ký') {
+                isNewUser = true;
+                showToast(`Chúc mừng, ${userName}! Bạn đã đăng ký thành công và nhận được ưu đãi 27% cho đơn hàng đầu tiên.`, 'success');
+            } else {
+                isNewUser = false;
+                showToast(`Chào mừng trở lại, ${userName}!`, 'success');
+            }
+            updateAuthUI();
+        });
+
+        // Go to top button functionality
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                goToTopBtn.classList.add('show');
+            } else {
+                goToTopBtn.classList.remove('show');
+            }
+        });
+        goToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });    
+        });
+        
+    </script>
+</body>
+</html>

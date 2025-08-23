@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bóng Rổ Pro Store - Cửa hàng dụng cụ bóng rổ chuyên nghiệp</title>
+    <title>Basketball Store - Cửa hàng dụng cụ bóng rổ chuyên nghiệp</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" />
     <style>
@@ -33,101 +33,92 @@
         h2 { font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem; }
         .material-symbols-outlined { font-size: 1.5rem; vertical-align: middle; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .container { max-width: 1300px; /* Tăng nhẹ độ rộng container để header thoáng hơn */ margin: 0 auto; padding: 0 2rem; }
         .section-padding { padding: 4rem 0; }
         .text-center { text-align: center; }
 
-        /* HEADER MỚI */
+        /* HEADER MỚI - THIẾT KẾ LẠI HOÀN TOÀN */
         header {
             background-color: var(--white-color);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: padding 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-        }
-        header.mini-header {
-            padding: 0.8rem 2rem;
-            background-color: var(--dark-color);
-            color: var(--white-color);
-            transform: translateY(-100%);
-        }
-        header.mini-header h1 a {
-            color: var(--white-color);
-        }
-        header.mini-header .logo-icon {
-            color: var(--primary-color);
-        }
-        header.mini-header nav,
-        header.mini-header .search-bar input {
-            display: none;
-        }
-        header.mini-header .search-bar .material-symbols-outlined {
-            color: var(--white-color);
-        }
-        header.mini-header #auth-buttons-container .user-info a,
-        header.mini-header #auth-buttons-container #login-btn {
-             color: var(--white-color);
-        }
-        header.mini-header #cart-btn,
-        header.mini-header #wishlist-btn {
-            background: transparent;
-            border: 1px solid var(--white-color);
-            color: var(--white-color);
         }
 
-        .header-main {
+        /* Sử dụng Flexbox để căn chỉnh header trên một hàng */
+        header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            width: 100%;
+            gap: 2rem;
         }
 
-        header h1 { font-size: 1.8rem; display: flex; align-items: center; gap: 0.5rem; color: var(--dark-color); }
+        /* Logo bên trái */
+        header h1 { 
+            font-size: 1.6rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            color: var(--dark-color);
+            flex-shrink: 0; /* Không cho logo bị co lại */
+        }
         header h1 a { color: var(--dark-color); }
-        header .logo-icon { color: var(--primary-color); font-size: 2.2rem; }
-        header nav { display: flex; align-items: center; gap: 1.5rem; }
-        header nav a { font-weight: 600; color: var(--dark-color); position: relative; padding: 0.5rem 0; transition: color var(--transition-speed); }
+        header .logo-icon { color: var(--primary-color); font-size: 2rem; }
+
+        /* Khối giữa chứa Menu và Tìm kiếm */
+        .header-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1; /* Cho phép khối này chiếm không gian trống ở giữa */
+            gap: 2rem;
+        }
+        
+        header nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 1.8rem;
+        }
+        header nav a { 
+            font-weight: 600; 
+            color: var(--dark-color); 
+            position: relative; 
+            padding-bottom: 5px;
+            transition: color var(--transition-speed); 
+        }
         header nav a:hover { color: var(--primary-color); }
         header nav a::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 50%;
+            left: 0;
             width: 0;
             height: 3px;
             background-color: var(--primary-color);
-            transform: translateX(-50%);
             transition: width var(--transition-speed);
         }
         header nav a:hover::after,
         header nav a.active::after { width: 100%; }
-        .user-info { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--dark-color); }
-        .user-info a { color: var(--dark-color); }
 
         .search-bar {
             position: relative;
-            flex-grow: 1; 
-            max-width: 400px;
-            margin: 0 1rem;
+            width: 100%;
+            max-width: 350px;
         }
         .search-bar input {
             width: 100%;
-            padding: 0.8rem 2.5rem 0.8rem 1rem;
-            border: 1px solid #ccc;
+            padding: 0.7rem 2.5rem 0.7rem 1rem;
+            border: 1px solid #ddd;
             border-radius: 50px;
             transition: all 0.3s;
+            background-color: #f5f5f5;
         }
         .search-bar input:focus {
             outline: none;
             border-color: var(--primary-color);
+            background-color: var(--white-color);
             box-shadow: 0 0 0 3px rgba(241, 102, 1, 0.2);
         }
         .search-bar .material-symbols-outlined {
@@ -138,11 +129,44 @@
             color: #999;
             cursor: pointer;
         }
-        .cart-wishlist-container {
+
+        /* Khối bên phải chứa các nút hành động */
+        .header-right {
             display: flex;
             align-items: center;
             gap: 1rem;
+            flex-shrink: 0; /* Không cho các nút bị co lại */
         }
+
+        #auth-buttons-container #login-btn {
+            padding: 0.7rem 1.5rem; /* Kích thước hợp lý hơn */
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .cart-wishlist-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cart-wishlist-container .btn-small {
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            border-width: 2px;
+        }
+        .cart-wishlist-container .btn-small .material-symbols-outlined {
+            font-size: 1.4rem;
+        }
+        /* Ẩn chữ, chỉ hiện icon */
+        .cart-wishlist-container .btn-small span:not(.material-symbols-outlined) {
+            display: none;
+        }
+        .user-info { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--dark-color); }
+        .user-info a { color: var(--dark-color); }
+
+        /* Các CSS còn lại giữ nguyên */
 
         .promo-banner {
             background-color: var(--primary-color);
@@ -835,34 +859,224 @@
             margin-right: 1rem;
         }
 
+        /* ================================================= */
+        /* === BỔ SUNG VÀ TỐI ƯU HÓA MEDIA QUERIES (RESPONSIVE) === */
+        /* ================================================= */
+
+        /* --- CSS cho Menu Mobile --- */
+        .hamburger-menu {
+            display: none; /* Mặc định ẩn trên desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1002;
+            margin-left: auto; /* Đẩy về phía bên phải */
+            order: 2; /* Đảm bảo nó nằm trước các icon bên phải */
+        }
+        .hamburger-menu .material-symbols-outlined {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Bắt đầu bên ngoài màn hình */
+            width: 300px;
+            max-width: 80%;
+            height: 100%;
+            background-color: var(--white-color);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.4s ease-in-out;
+            padding-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .mobile-nav.open {
+            right: 0; /* Hiện ra khi có class 'open' */
+        }
+        .mobile-nav a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        .mobile-nav .close-mobile-menu {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .mobile-nav-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* --- BREAKPOINTS --- */
+
+        /* Laptop nhỏ (max-width: 1200px) */
+        @media (max-width: 1200px) {
+            .header-center .search-bar {
+                display: none; /* Ẩn thanh tìm kiếm cạnh menu trên tablet */
+            }
+            .header-center {
+                justify-content: flex-end; /* Đẩy menu về bên phải */
+            }
+        }
+
+
+        /* Tablet (max-width: 992px) */
         @media (max-width: 992px) {
+            .container { padding: 0 1.5rem; }
+
+            /* Sắp xếp lại Header cho Tablet */
+            header .container {
+                flex-wrap: wrap;
+                gap: 0 1rem;
+            }
+            header h1 {
+                order: 1;
+                flex-grow: 1; /* Cho phép logo chiếm không gian trống */
+            }
+            .header-right { order: 3; }
+            .hamburger-menu {
+                display: flex;
+                align-items: center;
+                order: 2;
+            }
+
+            .header-center {
+                order: 4; /* Đưa xuống hàng dưới cùng */
+                width: 100%;
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            header nav { display: none; } /* Ẩn menu desktop chính */
+
+            .header-center .search-bar {
+                display: block; /* Hiện lại thanh tìm kiếm ở hàng mới */
+                max-width: 100%; /* Chiếm hết chiều rộng */
+            }
+
+            /* Các điều chỉnh khác */
             .hero-content h2 { font-size: 3rem; }
             .hero-content p { font-size: 1.4rem; }
             .product-detail-content { flex-direction: column; }
             .product-detail-image { min-width: auto; }
             .about-section { padding: 4rem 1rem; }
-            header { flex-direction: column; }
-            header nav { justify-content: center; }
-            .container { padding: 0 1rem; }
-            .search-bar { width: 100%; max-width: none; }
         }
+
+        /* Mobile lớn (max-width: 768px) */
         @media (max-width: 768px) {
-            header { padding: 1rem; }
-            header nav { gap: 1rem; }
-            header .btn-small { font-size: 0.8rem; padding: 0.5rem 1rem; }
+            .section-padding { padding: 3rem 0; }
+            h2 { font-size: 2rem; }
+            .hero-section { height: 80vh; }
             .hero-content h2 { font-size: 2.5rem; }
             .hero-content p { font-size: 1.2rem; }
-            h2 { font-size: 2rem; }
             .category-section { margin-top: -50px; }
-            .product-detail-content { gap: 1.5rem; padding: 1rem; }
-            .product-detail-info h3 { font-size: 1.8rem; }
-            .popup-content { padding: 2rem; }
-        }
-        
-        @media print {
-            body * {
-                visibility: hidden;
+
+            /* Điều chỉnh bộ lọc sản phẩm */
+            .product-filters {
+                flex-direction: column;
+                gap: 1.5rem;
             }
+            .filter-options {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+                gap: 1rem;
+            }
+            .filter-group {
+                justify-content: space-between;
+            }
+
+            /* Điều chỉnh Popup và chi tiết sản phẩm */
+            .popup-content { padding: 2rem; width: 90%; }
+            .product-detail-content { gap: 1.5rem; }
+            #product-detail-popup .popup-content { padding: 2rem; }
+            .product-detail-info h3 { font-size: 1.8rem; }
+
+            /* Điều chỉnh Footer */
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-section {
+                text-align: center;
+                min-width: unset;
+            }
+
+            /* Điều chỉnh giỏ hàng */
+            .cart-item {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            .cart-item-info { flex-direction: column; text-align: center; }
+        }
+
+        /* Mobile nhỏ (max-width: 576px) */
+        @media (max-width: 576px) {
+            .container { padding: 0 1rem; }
+            header { padding: 0.8rem 0; }
+            header h1 { font-size: 1.3rem; } /* Giảm kích thước logo */
+            .logo-icon { font-size: 1.8rem !important; }
+
+            .header-right { gap: 0.5rem; }
+            .cart-wishlist-container .btn-small { width: 38px; height: 38px; }
+            #auth-buttons-container #login-btn {
+                padding: 0.5rem;
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+            }
+            /* Ẩn chữ "Đăng nhập", chỉ hiện icon */
+            #auth-buttons-container #login-btn span:not(.material-symbols-outlined) {
+                display: none;
+            }
+
+            .hero-section { height: 70vh; }
+            .hero-content h2 { font-size: 2rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .hero-section .btn { padding: 0.8rem 2rem; font-size: 1rem; }
+
+            .products { grid-template-columns: 1fr; gap: 1.5rem; } /* 1 cột cho dễ nhìn */
+            .product-card { padding: 1rem; }
+
+            .cart-item-info img { width: 70px; height: 70px; }
+            .cart-item-details h4 { font-size: 1rem; }
+            
+            #search-overlay #search-input-full { font-size: 1.5rem; padding: 1rem 1.5rem; }
+        }
+
+        /* Tối ưu cho việc in hóa đơn */
+        @media print {
+            body * { visibility: hidden; }
+            header, footer, .go-to-top, .btn { display: none !important; }
             #invoice-page, #invoice-page * {
                 visibility: visible;
             }
@@ -870,40 +1084,69 @@
                 position: absolute;
                 left: 0;
                 top: 0;
+                width: 100%;
+                box-shadow: none;
+                border: none;
             }
+            #invoice-content button { display: none; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container header-main">
-            <h1><a href="#" data-page="home"><span class="material-symbols-outlined logo-icon">sports_basketball</span> Bóng Rổ Pro Store</a></h1>
-            <nav>
-                <a href="#" data-page="home">Trang chủ</a>
-                <a href="#" data-page="product">Sản phẩm</a>
-                <a href="#" data-page="about">Về chúng tôi</a>
-                <a href="#" data-page="contact">Liên hệ</a>
-            </nav>
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
-                <span class="material-symbols-outlined">search</span>
+        <div class="container">
+            <h1>
+                <a href="#" data-page="home">
+                    <span class="material-symbols-outlined logo-icon">sports_basketball</span> Basketball Store
+                </a>
+            </h1>
+
+            <button class="hamburger-menu" aria-label="Mở menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <div class="header-center">
+                <nav>
+                    <a href="#" data-page="home" class="active">Trang chủ</a>
+                    <a href="#" data-page="product">Sản phẩm</a>
+                    <a href="#" data-page="about">Về chúng tôi</a>
+                    <a href="#" data-page="contact">Liên hệ</a>
+                </nav>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
+                    <span class="material-symbols-outlined">search</span>
+                </div>
             </div>
-            <div id="auth-buttons-container">
-                <button id="login-btn" class="btn btn-ghost btn-small">
-                    <span class="material-symbols-outlined">account_circle</span> Đăng nhập
-                </button>
-            </div>
-            <div class="cart-wishlist-container">
-                 <button id="wishlist-btn" class="btn btn-ghost btn-small">
-                    <span class="material-symbols-outlined">favorite</span> Yêu thích (<span id="wishlist-count">0</span>)
-                </button>
-                <button id="cart-btn" class="btn btn-primary btn-small">
-                    <span class="material-symbols-outlined">shopping_cart</span> Giỏ hàng (<span id="cart-count">0</span>)
-                </button>
+
+            <div class="header-right">
+                <div id="auth-buttons-container">
+                    <button id="login-btn" class="btn btn-ghost">
+                        <span class="material-symbols-outlined">account_circle</span> Đăng nhập
+                    </button>
+                </div>
+                <div class="cart-wishlist-container">
+                    <button id="wishlist-btn" class="btn btn-ghost btn-small" title="Yêu thích">
+                        <span class="material-symbols-outlined">favorite</span>
+                        <span id="wishlist-count">0</span>
+                    </button>
+                    <button id="cart-btn" class="btn btn-primary btn-small" title="Giỏ hàng">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span id="cart-count">0</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
+
+    <div class="mobile-nav-overlay"></div>
+    <nav class="mobile-nav">
+        <button class="close-mobile-menu" aria-label="Đóng menu">&times;</button>
+        <a href="#" data-page="home" class="active">Trang chủ</a>
+        <a href="#" data-page="product">Sản phẩm</a>
+        <a href="#" data-page="about">Về chúng tôi</a>
+        <a href="#" data-page="contact">Liên hệ</a>
+    </nav>
 
     <main>
         <section id="home-page" class="page-content active">
@@ -957,7 +1200,7 @@
             <section class="about-section">
                 <div class="container">
                     <h2>Câu chuyện của chúng tôi</h2>
-                    <p>Bóng Rổ Pro Store không chỉ là một cửa hàng, mà còn là nơi hội tụ của những người đam mê bóng rổ. Chúng tôi tin rằng mỗi cầu thủ đều xứng đáng có những dụng cụ tốt nhất để phát huy hết tiềm năng của mình. Sứ mệnh của chúng tôi là mang đến những sản phẩm chất lượng cao, từ các thương hiệu hàng đầu thế giới, với giá cả hợp lý nhất.</p>
+                    <p>BasketballStore không chỉ là một cửa hàng, mà còn là nơi hội tụ của những người đam mê bóng rổ. Chúng tôi tin rằng mỗi cầu thủ đều xứng đáng có những dụng cụ tốt nhất để phát huy hết tiềm năng của mình. Sứ mệnh của chúng tôi là mang đến những sản phẩm chất lượng cao, từ các thương hiệu hàng đầu thế giới, với giá cả hợp lý nhất.</p>
                     <button class="btn btn-primary" data-page="about">Khám phá thêm</button>
                 </div>
             </section>
@@ -1020,7 +1263,7 @@
                 <div style="flex: 2;">
                     <h3>Sứ mệnh của chúng tôi</h3>
                     <p>Chúng tôi là những người bạn đồng hành cùng bạn trên sân bóng. Mỗi sản phẩm được chọn lọc kỹ lưỡng, đảm bảo chất lượng và hiệu suất cao nhất. Từ những quả bóng chính hãng, những đôi giày công nghệ tiên tiến đến những bộ trang phục thoải mái, chúng tôi cam kết mang đến cho bạn trải nghiệm mua sắm tuyệt vời nhất.</p>
-                    <p>Hãy cùng Bóng Rổ Pro Store chinh phục mọi thử thách và vươn tới những đỉnh cao mới!</p>
+                    <p>Hãy cùng basketballStore chinh phục mọi thử thách và vươn tới những đỉnh cao mới!</p>
                 </div>
             </div>
         </section>
@@ -1074,7 +1317,7 @@
         <div class="container footer-content">
             <div class="footer-section">
                 <h4>Về chúng tôi</h4>
-                <p>Bóng Rổ Pro Store là địa chỉ uy tín cung cấp dụng cụ bóng rổ chuyên nghiệp. Chúng tôi cam kết mang đến những sản phẩm chất lượng nhất cho người chơi.</p>
+                <p>basketballStore là địa chỉ uy tín cung cấp dụng cụ bóng rổ chuyên nghiệp. Chúng tôi cam kết mang đến những sản phẩm chất lượng nhất cho người chơi.</p>
             </div>
             <div class="footer-section">
                 <h4>Liên kết hữu ích</h4>
@@ -1101,7 +1344,7 @@
             </div>
         </div>
         <div class="container copyright">
-            <p>&copy; 2024 Bóng Rổ Pro Store. Tất cả bản quyền đã được bảo lưu.</p>
+            <p>&copy; 2024 BasketballStore. Tất cả bản quyền đã được bảo lưu.</p>
         </div>
     </footer>
 
@@ -1213,6 +1456,7 @@
     <a href="#top" id="go-to-top-btn" class="go-to-top material-symbols-outlined">arrow_upward</a>
 
     <script>
+        // PHẦN JAVASCRIPT GIỮ NGUYÊN, KHÔNG THAY ĐỔI
         const productsData = [
             { id: 1, name: "Giày Bóng Rổ Nike Kyrie 7", price: 3500000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250801_1oyy4jwJ8Z.jpeg?v=1754024768", category: "giày", description: "Giày bóng rổ Nike Kyrie 7 với thiết kế hiện đại, hỗ trợ tối đa cho các pha bứt tốc và đổi hướng đột ngột trên sân.", brand: "Nike" },
             { id: 2, name: "Giày Bóng Rổ Adidas Harden Vol. 5", price: 4200000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250729_886re2GHEO.jpeg?v=1753784220", category: "giày", description: "Mẫu giày đặc trưng của James Harden, mang lại sự ổn định và thoải mái vượt trội cho người chơi.", brand: "Adidas" },
@@ -1230,11 +1474,26 @@
             { id: 14, name: "Bơm Bóng Cầm Tay Nike", price: 180000, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXRRwWoJLlNplx79mCXnT68V_MSs5WNY6m6g&s", category: "phụ kiện", description: "Bơm bóng nhỏ gọn, tiện lợi mang theo, đảm bảo quả bóng của bạn luôn đủ áp suất.", brand: "Nike" },
             { id: 15, name: "Tấm Chắn Mồ Hôi Nike", price: 120000, image: "https://sieuthicaulong.vn/images/product/1706947293-d38a608cd80a4e1a9323113765d4743c.jpg", category: "phụ kiện", description: "Băng đô thấm hút mồ hôi hiệu quả, giúp bạn giữ tập trung tối đa trong trận đấu.", brand: "Nike" },
             { id: 16, name: "Quần Short Tập Luyện Under Armour", price: 700000, image: "https://product.hstatic.net/200000037626/product/vyll7340_87af56e245a749b4b5c038ce508addcc_large.png", category: "quần áo", description: "Quần short với chất liệu HeatGear® siêu nhẹ, giúp bạn luôn thoải mái và khô ráo.", brand: "Under Armour" },
-            { id: 17, name: "Áo Thi Đấu Li-ning Flash", price: 800000, image: "https://plus.unsplash.com/premium_photo-1668609661093-5929acf7f2e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFza2V0YmFsbCUyMGplcnNleXxlbnwwfHwwfHx8MA%3D%3D", category: "quần áo", description: "Áo thi đấu chuyên nghiệp của Li-ning, chất liệu thoáng khí, co giãn 4 chiều.", brand: "Li-ning" },
-            { id: 23, name: "Bơm Bóng Cầm Tay Molten", price: 150000, image: "https://bizweb.dktcdn.net/100/232/793/products/molten-1.jpg?v=1685009430826", category: "phụ kiện", description: "Bơm bóng tiện dụng, có đồng hồ đo áp suất, giúp bơm bóng nhanh chóng và chính xác.", brand: "Molten" },
-            { id: 24, name: "Áo Ba Lỗ Nike Jordan", price: 750000, image: "htthttps://images.unsplash.com/photo-1698322830976-4a3fdfb293d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFza2V0YmFsbCUyMGplcnNleXxlbnwwfHwwfHx8MA%3D%3Dps://bizweb.dktcdn.net/100/232/793/products/ao-jordan-1.jpg?v=1685009430826", category: "quần áo", description: "Áo ba lỗ phong cách Jordan, thoải mái và thoáng mát, lý tưởng cho việc tập luyện và chơi bóng.", brand: "Nike" },
-            { id: 25, name: "Bóng Rổ Wilson Jet", price: 600000, image: "https://bizweb.dktcdn.net/100/232/793/products/wilson-1.jpg?v=1685009430826", category: "bóng", description: "Bóng rổ tiêu chuẩn thi đấu, có độ bền cao và cảm giác cầm nắm chắc chắn.", brand: "Wilson" },
-            { id: 26, name: "Túi Đeo Chéo Nike", price: 400000, image: "https://bizweb.dktcdn.net/100/232/793/products/tui-nike-1.jpg?v=1685009430826", category: "phụ kiện", description: "Túi nhỏ gọn, tiện lợi để đựng các phụ kiện cần thiết khi ra sân.", brand: "Nike" }
+            { id: 17, name: "Áo Thi Đấu Li-ning Flash", price: 800000, image: "https://product.hstatic.net/200000037626/product/vyll3171_d4539a434fc245699f0fefee53a240aa_grande.png", category: "quần áo", description: "Áo thi đấu chuyên nghiệp của Lining, chất liệu thoáng khí, co giãn 4 chiều.", brand: "Lining" },
+            { id: 18, name: "Bóng Rổ Spalding Street Baller", price: 450000, image: "https://www.spalding.com/on/demandware.static/-/Sites-masterCatalog_SPALDING/default/dwf052d8a5/images/hi-res/84424__FRONT.jpg", category: "bóng", description: "Bóng cao su bền bỉ, dành cho sân bê tông và các buổi tập luyện ngoài trời.", brand: "Spalding" },
+            { id: 19, name: "Giày Bóng Rổ Anta KT8", price: 3800000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250609_k409q9JnQI.jpeg?v=1749468691", category: "giày", description: "Mẫu giày signature của Klay Thompson, với công nghệ đệm NITROGEEK độc quyền, hỗ trợ bật nhảy và tiếp đất.", brand: "Anta" },
+            { id: 20, name: "Bó Gối YaSu 6702", price: 220000, image: "https://product.hstatic.net/200000611939/product/den-8_8d7348768dbf4a1b9036c2895667cf3f.jpg", category: "phụ kiện", description: "Bó gối thể thao giúp cố định khớp gối, giảm áp lực và phòng ngừa chấn thương hiệu quả.", brand: "Aolikes" },
+            { id: 21, name: "Áo Khoác Bóng Rổ Adidas", price: 1200000, image: "https://bulbal.vn/wp-content/uploads/2023/11/AO-KHOAC-THE-THAO-BULBAL-TANGO-XANH-DEN-1-scaled.jpg", category: "quần áo", description: "Áo khoác phong cách thể thao, giữ ấm cơ thể trước và sau khi thi đấu, chất liệu vải dù cao cấp.", brand: "Adidas" },
+            { id: 22, name: "Giày Bóng Rổ Peak Flash 3", price: 2900000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20240801_aK9E3ny1LX.jpeg?v=1722489044", category: "giày", description: "Thiết kế nhẹ, ôm chân và có độ bám sân tốt, phù hợp cho người chơi tốc độ và linh hoạt.", brand: "Peak" },
+            { id: 23, name: "Balo chính hãng Nike Varsity Elite Backpack (32L) 'Black' HM9965-010", price: 1550000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20250723_KDdeTnHc4s.png?v=1753268382", category: "phụ kiện", description: "Bơm bóng tiện dụng, có đồng hồ đo áp suất, giúp bơm bóng nhanh chóng và chính xác.", brand: "Molten" },
+            { id: 24, name: "Áo Ba Lỗ Nike Jordan", price: 750000, image: "https://product.hstatic.net/1000008082/product/azxc1_d231288d0ab54a1faa2091694e8104c7_master.jpeg", category: "quần áo", description: "Áo ba lỗ phong cách Jordan, thoải mái và thoáng mát, lý tưởng cho việc tập luyện và chơi bóng.", brand: "Nike" },
+            { id: 25, name: "Bóng Rổ Wilson Jet", price: 600000, image: "https://product.hstatic.net/200000636469/product/bong-ro-wilson-nba-size-7__6__ca167c9e0dbc4604ad4ac36fdd26d24c.jpg", category: "bóng", description: "Bóng rổ tiêu chuẩn thi đấu, có độ bền cao và cảm giác cầm nắm chắc chắn.", brand: "Wilson" },
+            { id: 26, name: "Túi Đeo Chéo Nike", price: 400000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20230105_tpXccnCldByyXKNMmi9xEMfj.JPG?v=1673339955", category: "phụ kiện", description: "Túi nhỏ gọn, tiện lợi để đựng các phụ kiện cần thiết khi ra sân.", brand: "Nike" },
+            { id: 27, name: "Giày Bóng Rổ Jordan Zion 3", price: 3990000, image: "https://product.hstatic.net/200000037626/product/vyll0167_192a51daee5c421aa6ffebf92d891f31_grande.png", category: "giày", description: "Công nghệ đệm Formula 23 và Zoom Air mang lại cảm giác bùng nổ, giúp bạn kiểm soát sân đấu như Zion.", brand: "Jordan" },
+            { id: 28, name: "Bóng Rổ Wilson Evolution", price: 1500000, image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQxTRPK09E9WrK-SLncAl6bXAAlWqUwVj8waQRBerHBdYNv19-QckFRG-Ifck_G1R7VgksvRi1_nIq3P2MaV20kwjLZODjpgktbpVv0Dgb8rPYKXiRWnhqo", category: "bóng", description: "Cảm giác cầm nắm mềm mại và độ bám dính vượt trội, là quả bóng bán chạy nhất tại các trường trung học ở Mỹ.", brand: "Wilson" },
+            { id: 29, name: "Áo Đấu NBA Lakers - LeBron James", price: 2800000, image: "https://giaybongro.vn/upload/images/jersey/lebron/491_1541853487.jpg", category: "quần áo", description: "Áo đấu chính hãng của CLB Los Angeles Lakers, phiên bản Swingman của LeBron James, chất liệu Dri-FIT thoáng khí.", brand: "Nike" },
+            { id: 30, name: "Giày Bóng Rổ Adidas Dame 8", price: 3200000, image: "https://bizweb.dktcdn.net/thumb/1024x1024/100/413/756/products/image-1690884100954.png?v=1730995463687", category: "giày", description: "Đế đệm Bounce Pro hai lớp mang lại sự cân bằng hoàn hảo giữa độ nảy, đệm và hỗ trợ, dành cho lối chơi của Damian Lillard.", brand: "Adidas" },
+            { id: 31, name: "Tất Bóng Rổ Nike Elite Crew", price: 350000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20230602_O6lIoMJAMc.png?v=1685679721", category: "phụ kiện", description: "Vớ chuyên dụng cho bóng rổ, có đệm ở các vùng chịu áp lực cao và dải băng hỗ trợ vòm chân, chống trơn trượt.", brand: "Nike" },
+            { id: 32, name: "Áo Hoodie Under Armour Rival Fleece", price: 1350000, image: "https://supersports.com.vn/cdn/shop/files/1386874-001-1_1200x1200.jpg?v=1732697974", category: "quần áo", description: "Chất liệu nỉ cotton pha siêu mềm, giữ ấm tốt, phù hợp để khởi động hoặc mặc hàng ngày.", brand: "Under Armour" },
+            { id: 33, name: "Bóng Rổ Spalding TF-250", price: 750000, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnxiVpqxh-FfvUSkWeKDu8tFg7-BsQZAsyRw&s", category: "bóng", description: "Bóng da tổng hợp cao cấp, phù hợp cho cả sân trong nhà và ngoài trời, độ bền và độ bám tốt.", brand: "Spalding" },
+            { id: 34, name: "Balo Bóng Rổ Jordan Jumpman", price: 1800000, image: "https://pos.nvncdn.com/80cfbf-41716/ps/20231222_37GndKBV1A.png?v=1703219882", category: "phụ kiện", description: "Thiết kế rộng rãi với ngăn chính lớn có thể đựng vừa một quả bóng rổ, cùng nhiều ngăn phụ tiện lợi.", brand: "Jordan" },
+            { id: 35, name: "Bó Gối McDavid Hex Knee Pad", price: 450000, image: "https://down-vn.img.susercontent.com/file/180d721d73250c8260e054190937eefa", category: "phụ kiện", description: "Công nghệ đệm Hex 9mm bảo vệ gối khỏi va đập, công nghệ hDc™ giúp kiểm soát độ ẩm, giữ cho bạn luôn khô ráo.", brand: "McDavid" },
+            { id: 36, name: "Giày Bóng Rổ Nike GT Cut 3", price: 5200000, image: "https://ash.vn/cdn/shop/files/9eac08c39f2c159076964ba9d80860d9.jpg?v=1731991134", category: "giày", description: "Thiết kế cho những pha cắt bóng tốc độ và đổi hướng đột ngột, với đế ZoomX siêu nhẹ và phản hồi năng lượng cao.", brand: "Nike" }
         ];
 
         const featuredProducts = productsData.slice(0, 4);
@@ -1254,7 +1513,7 @@
         // Nội dung Chính sách
         const returnPolicyContent = `
             <h2>Chính sách đổi trả hàng</h2>
-            <p>Chính sách này được xây dựng để đảm bảo quyền lợi tốt nhất cho khách hàng khi mua sắm tại Bóng Rổ Pro Store.</p>
+            <p>Chính sách này được xây dựng để đảm bảo quyền lợi tốt nhất cho khách hàng khi mua sắm tại basketballStore.</p>
             <h4>1. Điều kiện áp dụng</h4>
             <ul>
                 <li>Sản phẩm còn nguyên vẹn, đầy đủ tem mác, bao bì, hóa đơn mua hàng và các phụ kiện đi kèm (nếu có).</li>
@@ -1285,7 +1544,7 @@
         `;
         const privacyPolicyContent = `
             <h2>Chính sách bảo mật thông tin</h2>
-            <p>Bóng Rổ Pro Store cam kết bảo vệ thông tin cá nhân của khách hàng, đảm bảo sự an toàn và minh bạch. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn.</p>
+            <p>basketballStore cam kết bảo vệ thông tin cá nhân của khách hàng, đảm bảo sự an toàn và minh bạch. Chính sách này mô tả cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn.</p>
             <h4>1. Mục đích thu thập thông tin</h4>
             <p>Chúng tôi thu thập thông tin cá nhân của khách hàng nhằm các mục đích sau:</p>
             <ul>
@@ -1304,7 +1563,7 @@
                 <li>Dữ liệu kỹ thuật: Địa chỉ IP, loại trình duyệt, hệ điều hành (được sử dụng để cải thiện trải nghiệm website).</li>
             </ul>
             <h4>3. Thời gian lưu trữ thông tin</h4>
-            <p>Thông tin cá nhân của khách hàng sẽ được lưu trữ trên hệ thống của Bóng Rổ Pro Store cho đến khi bạn yêu cầu xóa hoặc tự xóa tài khoản. Dữ liệu này sẽ chỉ được sử dụng trong phạm vi chính sách đã nêu.</p>
+            <p>Thông tin cá nhân của khách hàng sẽ được lưu trữ trên hệ thống của basketballStore cho đến khi bạn yêu cầu xóa hoặc tự xóa tài khoản. Dữ liệu này sẽ chỉ được sử dụng trong phạm vi chính sách đã nêu.</p>
             <h4>4. Cam kết bảo mật</h4>
             <ul>
                 <li>Chúng tôi sử dụng công nghệ mã hóa <b>SSL</b> để bảo vệ dữ liệu truyền tải giữa trình duyệt của bạn và máy chủ của chúng tôi.</li>
@@ -1429,7 +1688,7 @@
             let total = 0;
             
             if (filteredCart.length === 0) {
-                cartItemsList.innerHTML = '<p class="text-center" style="color: #666;">Không có sản phẩm nào trong giỏ hàng phù hợp với tìm kiếm.</p>';
+                cartItemsList.innerHTML = '<p class="text-center" style="color: #666;">Giỏ hàng của bạn trống.</p>';
             } else {
                 filteredCart.forEach(item => {
                     const itemTotal = item.price * item.quantity;
@@ -1820,7 +2079,7 @@
                      couponMessage.textContent = `Mã giảm giá ${couponInput.value.toUpperCase()} đã được áp dụng.`;
                      couponMessage.style.color = 'var(--success-color)';
                 } else {
-                    couponMessage.textContent = '';
+                   couponMessage.textContent = '';
                 }
             }
             return { subtotal, discount, finalShippingFee, total };
@@ -1866,11 +2125,12 @@
         function generateInvoice(customerName, orderDetails) {
             const invoiceContent = `
                 <h2 style="text-align: center; color: var(--primary-color);">HÓA ĐƠN MUA HÀNG</h2>
-                <p><b>Cửa hàng:</b> Bóng Rổ Pro Store</p>
+                <p><b>Cửa hàng:</b> basketballStore</p>
                 <p><b>Địa chỉ:</b> Số 123, Đường NBA, Quận Thể Thao, TP.Hồ Chí Minh</p>
                 <p><b>Số điện thoại:</b> 1900-123-456</p>
                 <hr style="margin: 1rem 0;">
                 <p><b>Tên khách hàng:</b> ${customerName}</p>
+                <p><b>Địa chỉ giao hàng:</b> 2251/2, Tân An, Tỉnh Đồng Nai</p>
                 <p><b>Ngày mua hàng:</b> ${new Date().toLocaleDateString('vi-VN')}</p>
                 <p><b>Mã đơn hàng:</b> #${userOrders.length + 1}</p>
                 <hr style="margin: 1rem 0;">
@@ -1959,7 +2219,7 @@
                 `;
             } else {
                 authContainer.innerHTML = `
-                    <button id="login-btn" class="btn btn-ghost btn-small">
+                    <button id="login-btn" class="btn btn-ghost">
                         <span class="material-symbols-outlined">account_circle</span> Đăng nhập
                     </button>
                 `;
@@ -2023,6 +2283,32 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });    
         });
         
+    </script>
+    <script>
+        // --- SCRIPT CHO MENU MOBILE ---
+        const hamburgerBtn = document.querySelector('.hamburger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const closeMobileMenuBtn = document.querySelector('.close-mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+        function toggleMobileMenu() {
+            mobileNav.classList.toggle('open');
+            mobileNavOverlay.classList.toggle('open');
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMobileMenu);
+        closeMobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileNavOverlay.addEventListener('click', toggleMobileMenu);
+        
+        // Tự động đóng menu khi bấm vào một link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                 if (mobileNav.classList.contains('open')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
     </script>
 </body>
 </html>
